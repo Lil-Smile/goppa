@@ -23,7 +23,7 @@ McEliece_public::McEliece_public(int t, const Matrix<Galois>& G)
 
 McEliece_public::~McEliece_public() {}
 
-Matrix<Galois> McEliece_public::encode(const Matrix<Galois>& message) const {
+Matrix<Galois> McEliece_public::encode(const Matrix<Galois>& message, int index) const {
 	int k = G.size(0);
 	int n = message.size(1);
 

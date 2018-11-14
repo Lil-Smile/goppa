@@ -14,7 +14,7 @@ namespace diagonal_construction {
 		Diagonal_public();
 		Diagonal_public(const matrix::Matrix<galois::Galois>& G, const matrix::Matrix<galois::Galois>& W);
 		~Diagonal_public();
-		matrix::Matrix<galois::Galois> encode(const matrix::Matrix<galois::Galois>& message) const;
+		matrix::Matrix<galois::Galois> encode(const matrix::Matrix<galois::Galois>& message, int index) const;
 
 		matrix::Matrix<galois::Galois> get_G() const;
 		matrix::Matrix<galois::Galois> get_W() const;

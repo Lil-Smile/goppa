@@ -89,10 +89,11 @@ void test_goppa(string s) {
 
 	//	Galois::set_binary_mode(false);
 
-	//string s = "Hello, World!";
 
+	//it encodes and decodes only one symbol
 	mgal beforeEncode = str_to_mgal(s);
-	mgal y = public_key->encode(beforeEncode);
+	mgal y = public_key->encode(beforeEncode, 0);
+	cout << "First symbol only.\n";
 	cout << "Encoded:     " << y;
 	y = public_key->add_errors(y);
 	delete public_key;
@@ -103,6 +104,28 @@ void test_goppa(string s) {
 	delete private_key;
 
 	cout << "Converted: " << mgal_to_str(x) << "\n";
+
+	cout << "Whole string.\n";
+	goppa.generate_pair((Crypto_public_key**)&public_key, (Crypto_private_key**)&private_key);
+	beforeEncode = str_to_mgal(s);
+	std::ostringstream fullEncoded;
+	std::ostringstream fullErrors;
+	std::ostringstream fullDecoded;
+	std::ostringstream fullConverted;
+	for (int i = 0; i < s.size(); i++) {
+		mgal encoded = public_key->encode(beforeEncode, i);
+		fullEncoded << encoded;
+		encoded = public_key->add_errors(encoded);
+		fullErrors << encoded;
+		mgal decoded = private_key->decode(encoded);
+		fullDecoded << decoded;
+		fullConverted << mgal_to_str(decoded);
+	}
+	cout << "Full encoded:\n" << fullEncoded.str() << "\n";
+	cout << "Full errors:\n" << fullErrors.str() << "\n";
+	cout << "Full decoded:\n" << fullDecoded.str() << "\n";
+	cout << "Full converted:\n" << fullConverted.str() << "\n";
+
 }
 
 

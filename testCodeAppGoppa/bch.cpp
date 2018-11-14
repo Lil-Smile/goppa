@@ -25,7 +25,7 @@ BCH_public::BCH_public(int t, const Matrix<Galois>& G_0)
 
 BCH_public::~BCH_public() {}
 
-Matrix<Galois> BCH_public::encode(const Matrix<Galois>& message) const {
+Matrix<Galois> BCH_public::encode(const Matrix<Galois>& message, int index) const {
 	int k = G_0.size(0);
 	int n = message.size(1);
 

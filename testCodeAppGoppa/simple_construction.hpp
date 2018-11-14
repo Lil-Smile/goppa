@@ -14,7 +14,7 @@ namespace simple_construction {
 		Simple_public();
 		Simple_public(int t, const matrix::Matrix<galois::Galois>& G, const matrix::Matrix<galois::Galois>& M_1);
 		~Simple_public();
-		matrix::Matrix<galois::Galois> encode(const matrix::Matrix<galois::Galois>& message) const;
+		matrix::Matrix<galois::Galois> encode(const matrix::Matrix<galois::Galois>& message, int index) const;
 
 		matrix::Matrix<galois::Galois> get_G() const;
 		matrix::Matrix<galois::Galois> get_M_1() const;

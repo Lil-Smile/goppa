@@ -24,7 +24,7 @@ Simple_public::Simple_public(int t, const Matrix<Galois>& G, const Matrix<Galois
 
 Simple_public::~Simple_public() {}
 
-Matrix<Galois> Simple_public::encode(const Matrix<Galois>& message) const {
+Matrix<Galois> Simple_public::encode(const Matrix<Galois>& message, int index) const {
 	int k = G.size(0);
 	int n = message.size(1);
 

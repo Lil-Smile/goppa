@@ -24,7 +24,7 @@ Goppa_public::Goppa_public(int t, const Matrix<Galois>& G)
 
 Goppa_public::~Goppa_public() {}
 
-Matrix<Galois> Goppa_public::encode(const Matrix<Galois>& message) const {
+Matrix<Galois> Goppa_public::encode(const Matrix<Galois>& message, int index) const {
 	int k = G.size(0);
 	int n = message.size(1);
 
@@ -33,8 +33,8 @@ Matrix<Galois> Goppa_public::encode(const Matrix<Galois>& message) const {
 		m(0, i) = (i < n) ? message(0, i) : Galois(0, 3);
 	}*/
 
-	for (int i = k; i < k*2; ++i) {
-		m(0, i-k) = ((i-k) < n) ? message(0, i) : Galois(0, 3);
+	for (int i = k*index; i < k*(index+1); ++i) {
+		m(0, i-(k*index)) = ((i-(k*index)) < n) ? message(0, i) : Galois(0, 3);
 	}
 
 	return m * G;

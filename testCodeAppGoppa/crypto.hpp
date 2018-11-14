@@ -11,7 +11,7 @@ namespace crypto {
 	struct Crypto_public_key {
 	public:
 		virtual ~Crypto_public_key() = 0;
-		virtual matrix::Matrix<galois::Galois> encode(const matrix::Matrix<galois::Galois>& message) const = 0;
+		virtual matrix::Matrix<galois::Galois> encode(const matrix::Matrix<galois::Galois>& message, int index) const = 0;
 
 		virtual matrix::Matrix<galois::Galois> get_G() const = 0;
 		virtual int get_n() const = 0;

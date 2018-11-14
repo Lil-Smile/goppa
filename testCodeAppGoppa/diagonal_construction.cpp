@@ -25,7 +25,7 @@ Diagonal_public::Diagonal_public(const Matrix<Galois>& _G, const Matrix<Galois>&
 
 Diagonal_public::~Diagonal_public() {}
 
-Matrix<Galois> Diagonal_public::encode(const Matrix<Galois>& message) const {
+Matrix<Galois> Diagonal_public::encode(const Matrix<Galois>& message, int index) const {
 	int k = G.size(0);
 	int n = message.size(1);
 
